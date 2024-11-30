@@ -5,13 +5,13 @@ FROM node:16 AS build
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY ./client/package.json ./client/package-lock.json ./
+COPY client/package.json client/package-lock.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application into the container
-COPY ./client ./
+COPY client ./ 
 
 # Build the app
 RUN npm run build
